@@ -1,5 +1,5 @@
 # PHP-Downloader (Alpha)
-Download any file from web via PHP, with Instagram and Youtube support (via command line Interface)
+Download any file from web via PHP, with Instagram support (via command line Interface)
 
 ## Usage:
 
