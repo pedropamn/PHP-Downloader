@@ -9,7 +9,7 @@
  * Licensed under MIT license.
  */
  
-error_reporting(0);
+error_reporting(1);
 	//=================================================================================//
 
 class Colors {
@@ -181,6 +181,7 @@ function progress($resource,$download_total_size, $downloaded_so_far, $upload_si
 
 function download($remote_file, $path, $colors){
 	
+	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $remote_file);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -188,6 +189,7 @@ function download($remote_file, $path, $colors){
 	curl_setopt($ch, CURLOPT_NOPROGRESS, false); // needed to make progress function work
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	$file = curl_exec($ch);	
+		
 	if(!$file){
 		echo $colors->getColoredString("Error. Stopping... Check if the URL is valid or if you are trying download a file","light_red", "white");
 		die();
@@ -198,12 +200,16 @@ function download($remote_file, $path, $colors){
 	
 	
 	
-	
 	//Save
 	$fp = fopen($path, 'w');
-    fwrite($fp, $file);
+    if(fwrite($fp, $file)){
+		echo "\n".$colors->getColoredString("Done","light_green", "white");
+	}
+	else{
+		echo "\n".$colors->getColoredString("Error while writing the file","light_red", "white");
+	}
     fclose($fp);
-	echo "\n".$colors->getColoredString("Done","light_green", "white");;
+	
 }
 
 /**
@@ -225,6 +231,7 @@ function get_direct_youtube_url($link){
 		
 		//Get the link
 		require('tmp_php_files/YouTubeDownloader.php');
+
 		$yt = new YouTubeDownloader();
 		$links = $yt->getDownloadLinks($link);
 		foreach ($links as $link){
@@ -340,7 +347,7 @@ function deleteDir($path) {
 	}
 	
  	//Youtube
-	else if(substr($url,0,23) == "https://www.youtube.com"){
+	/*else if(substr($url,0,23) == "https://www.youtube.com"){
 		$url = get_direct_youtube_url($url);
 		$ext = ".mp4";
 	}
@@ -348,7 +355,7 @@ function deleteDir($path) {
 	//Using the extension of the file
 	else{
 		$ext = "";
-	} 
+	} */
 	
 	
 	
