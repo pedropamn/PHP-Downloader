@@ -1,5 +1,5 @@
 # <img valign="middle" src="https://www.fepe.org.br/portal/wp-content/uploads/2021/03/cloud-icone-downloads.png" width="30" height="30" /> PHP-Downloader (Alpha)
-Download any file from web via PHP, with Instagram support (via command line Interface)
+Download any file from web via PHP CLI, with Instagram support (via command line Interface)
 
 ## Usage:
 
