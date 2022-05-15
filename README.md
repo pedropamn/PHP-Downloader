@@ -15,5 +15,6 @@ sudo apt install php7.4-curl
 
 
 
-## Known issue:
+## Known issues:
 Colored strings not work in Windows 8.1
+Download only the first media from carousels
