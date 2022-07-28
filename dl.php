@@ -3,8 +3,7 @@
 /*
  * Simple PHP file Downloader by @pedropamn.
  *
- * (c) Pedro Antônio <pedropamn@gmail.com>
- *     <https://github.com/pedropamn>
+ * (c) Pedro Antônio * <https://github.com/pedropamn>
  *
  * Licensed under MIT license.
  */
